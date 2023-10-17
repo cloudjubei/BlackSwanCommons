@@ -9,3 +9,10 @@ export default class ConfigConnectionInputModel
         this.port = port
     }
 }
+export class ConfigConnectionInputModelUtils
+{
+    static GetUrl(m: ConfigConnectionInputModel) : string
+    {
+        return m.host + ':' + m.port
+    }
+}
