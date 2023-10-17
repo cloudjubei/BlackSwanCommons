@@ -3,11 +3,6 @@ import TokenIndicatorsModel from "../indicators/TokenIndicatorsModel.dto"
 
 export default class IndicatorsCache extends ACache<TokenIndicatorsModel>
 {
-    constructor()
-    {
-        super()
-    }
-    
     storeIndicators(value: TokenIndicatorsModel)
     {
         const latest = this.getLatest(value.tokenPair, value.interval)

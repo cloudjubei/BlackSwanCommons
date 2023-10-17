@@ -1,12 +1,12 @@
+import ConfigConnectionInputModel from "./ConfigConnectionInputModel.dto"
 
-export default class ConfigSignalInputModel
+export default class ConfigSignalInputModel extends ConfigConnectionInputModel
 {
-    port: number
     tokens: string[]
     intervals: string[]
 
-    constructor(port: number, tokens: string[], intervals: string[]){
-        this.port = port
+    constructor(host: string, port: number, tokens: string[], intervals: string[]){
+        super(host, port)
         this.tokens = tokens
         this.intervals = intervals
     }
