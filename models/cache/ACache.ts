@@ -30,6 +30,10 @@ export default class ACache<T>
     {
         return Object.keys(this.cache)
     }
+    getAllInternalKeys(key: string) : string[]
+    {
+        return Object.keys(this.cache[key])
+    }
     getAll(key: string, internalKey: string) : T[]
     {
         return this.cache[key][internalKey] ?? []
