@@ -36,11 +36,15 @@ export default class ACache<T>
     }
     getAll(key: string, internalKey: string) : T[]
     {
+        if (!this.cache[key]){ return [] }
+
         return this.cache[key][internalKey] ?? []
     }
 
     getLatest(key: string, internalKey: string) : T | undefined
     {
+        if (!this.cache[key]){ return undefined }
+
         const values = this.cache[key][internalKey]
         if (values.length > 0){
             return values[0]
