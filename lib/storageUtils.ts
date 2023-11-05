@@ -37,7 +37,7 @@ export default class StorageUtils
                 })
             }
             if (!StorageUtils.checkIfFileOrDirectoryExists(path)) {
-                fs.mkdir(path, (err) => {
+                fs.mkdir(path, { recursive: true }, (err) => {
                     if (err) {
                         reject(err)
                         return
@@ -52,7 +52,7 @@ export default class StorageUtils
     static createOrWriteToFile = (path: string, fileName: string, data: string) =>
     {
         if (!StorageUtils.checkIfFileOrDirectoryExists(path)) {
-            fs.mkdirSync(path)
+            fs.mkdirSync(path, { recursive: true })
         }
 
         fs.writeFileSync(`${path}/${fileName}`, data, 'utf8')
